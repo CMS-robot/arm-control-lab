@@ -59,5 +59,19 @@ def print_dh_table(robot_dh):
         )
 
 
+def joint_names(robot_dh):
+    """用列表推导式一次取出所有关节名，返回字符串列表。
+
+    「列表推导式」是 for 循环 + append 的压缩写法。
+    上面 return 那一行，完全等价于下面这四行：
+        names = []
+        for joint in robot_dh:
+            names.append(joint["name"])
+        return names
+    """
+    return [joint["name"] for joint in robot_dh]
+
+
 if __name__ == "__main__":      # 入口守卫：被 import 时不会自动打印
     print_dh_table(FR3_DH)
+    print("全部关节名：", joint_names(FR3_DH))
