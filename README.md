@@ -1,13 +1,14 @@
 # arm-control-lab
-Six-axis arm kinematics, dynamics and trajectory-tracking lab in MuJoCo
+Seven-axis arm kinematics, dynamics and trajectory-tracking lab in MuJoCo
 
-A from-scratch motion control experiment bench: I derive the kinematics and
-dynamics myself instead of calling a toolbox, validate every derivation against
-MuJoCo, then close the loop with a controller and measure the tracking error.
+A from-scratch motion control experiment bench built on a **Franka Emika Panda**:
+I derive the kinematics and dynamics myself instead of calling a toolbox,
+validate every derivation against MuJoCo, then close the loop with a controller
+and measure the tracking error.
 
-**Task:**&#8203; drive a 6-DoF arm in MuJoCo to pick a cube from a start point and
-place it at a target point while avoiding a table-mounted obstacle — with the
-end-effector tracking error measured and reproducible.
+**Task:**&#8203; drive a 7-DoF Franka Emika Panda in MuJoCo to pick a cube from a
+start point and place it at a target point while avoiding a table-mounted
+obstacle — with the end-effector tracking error measured and reproducible.
 
 ## Status
 

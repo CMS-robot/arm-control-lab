@@ -25,15 +25,19 @@ DH 参数（Modified DH / Craig 约定，长度单位米，角度单位弧度）
       ② robotics-toolbox-python 的 Panda 模型（Modified DH）
       ③ 《上海工程技术大学学报》Franka Panda D-H 参数表
 
-机型选择说明（2026-10-08 定，此前一度用过 UR5）
-    项目规格原写「六轴机械臂」，实际选型为 Panda 七轴。理由：
+机型选择说明（2026-10-08 定，全项目以此为准）
+    选 Franka Emika Panda 的理由：
       ① 具身智能研究界事实标准 —— robosuite 的默认机器人就是 Panda，
          大量 RL / 模仿学习 / Sim2Real 工作都以它为平台；
-      ② MuJoCo Menagerie 有官方模型 franka_emika_panda，且自带平行夹爪，
-         抓取-放置任务开箱可用（Menagerie 里没有 UR5，只有 UR5e）；
-      ③ 七轴冗余臂对 WBC / 零空间控制是额外的话题储备。
-    项目相关描述中的「六轴」一律以此为准。
-    （备查：日后若改用 UR5e 六轴，替换下表条目即可，代码结构不变。）
+      ② 七轴冗余（6 + 1）—— 主攻方向 WBC 的核心（零空间投影、任务优先级、
+         自运动）只有在冗余臂上才有施展空间；六轴臂冗余度为零，玩不了；
+      ③ MuJoCo Menagerie 有官方模型 franka_emika_panda，且自带平行夹爪，
+         抓取-放置任务开箱可用；
+      ④ 可退化：锁住 J7 就退化成六轴臂，反过来做不到。
+
+    代价（提前记下）：七轴没有一般闭式逆解，逆解须用数值法（阻尼最小二乘 / QP）。
+    （备查：git 历史 4c8dc65 留着 UR5 六轴版；日后若改用 UR5e，
+      替换下表条目即可，代码结构不变。）
 """
 
 import math
