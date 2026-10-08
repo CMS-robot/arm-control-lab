@@ -18,12 +18,13 @@ DH 参数（Modified DH / Craig 约定，长度单位米，角度单位弧度）
        不能混用，混了算出来的末端位姿会整体偏 90°。
 
 数据来源
-    Franka 官方控制参数文档
-    https://frankaemika.github.io/docs/control_parameters.html
-    三个独立来源逐项核对一致：
-      ① Franka 官方文档
-      ② robotics-toolbox-python 的 Panda 模型（Modified DH）
-      ③ 《上海工程技术大学学报》Franka Panda D-H 参数表
+    ① Franka 官方文档（现役地址）
+       https://frankarobotics.github.io/docs/robot_specifications.html
+       → Kinematic Configuration → Denavit–Hartenberg Parameters
+       （注：老地址 frankaemika.github.io 已整站下线，2026-10-08 实测 404，别再引用）
+    ② robotics-toolbox-python 的 Panda 模型（Modified DH）
+    ③ 《上海工程技术大学学报》Franka Panda D-H 参数表
+    三者数值逐项一致；离线存档：D:\WorkBuddy\参考实现\Franka官方DH参数表-离线存档.html
 
 机型选择说明（2026-10-08 定，全项目以此为准）
     选 Franka Emika Panda 的理由：
