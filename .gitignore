@@ -218,3 +218,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ── 本项目自定义（arm-control-lab）──────────────────────────────────────────
+# results/ 目录只入库它自己（靠 .gitkeep），里面跑出来的产物一律不入库：
+# 演示轨迹 csv、误差曲线图、临时评测输出——这些都能用一条命令重新生成，
+# 进仓库只会把 diff 弄脏。真正要留档的实验结论写进 notes/ 或 README。
+# 注意：不要删 results/.gitkeep，否则空目录会从 git 里一起消失。
+results/*
+!results/.gitkeep
