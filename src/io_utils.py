@@ -42,20 +42,25 @@ def load_trajectory(path):
         空行（含只有逗号的行）会被跳过，不会让 float("") 抛 ValueError。
 
     异常
-        FileNotFoundError : 路径不存在
-        ValueError        : 某个字段不是合法数字
+        ValueError : 某个字段不是合法数字
+        FileNotFoundError 不抛：路径不存在时打印一句提示并返回空列表 []（D4）
     """
     data = []
-    # newline="" 是 csv 模块的要求：交给 csv 自己处理换行符
-    with open(path, "r", newline="", encoding="utf-8") as f:
-        reader = csv.reader(f)
-        next(reader, None)  # 丢掉表头；给默认值 None，空文件也不会抛 StopIteration
+    try:
+        # newline="" 是 csv 模块的要求：交给 csv 自己处理换行符
+        with open(path, "r", newline="", encoding="utf-8") as f:
+            reader = csv.reader(f)
+            next(reader, None)  # 丢掉表头；给默认值 None，空文件也不会抛 StopIteration
 
-        for row in reader:
-            # row 是「一个字符串列表」，空行会得到 [] 或 [''] 或 ['', '']
-            if not row or all(cell.strip() == "" for cell in row):
-                continue
-            data.append([float(cell) for cell in row])
+            for row in reader:
+                # row 是「一个字符串列表」，空行会得到 [] 或 [''] 或 ['', '']
+                if not row or all(cell.strip() == "" for cell in row):
+                    continue
+                data.append([float(cell) for cell in row])
+    except FileNotFoundError:
+        # 只捕这一种异常：把函数名敲错、float() 遇到坏数据，照样正常上抛，不会被吞掉
+        print(f"轨迹文件不存在：{path}")
+        return []
 
     return data
 
