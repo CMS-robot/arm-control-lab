@@ -23,6 +23,13 @@ Under active development since October 2026.
 
 ## Modules
 
+**Done**
+
+- [x] `robot_config.py` — Franka Research 3 (7-DoF) DH table, joint limits and accessors
+- [x] `io_utils.py` — joint-trajectory save/load to CSV (with a missing-file guard)
+
+**Planned (v0.1)**
+
 - [ ] `transform.py` — rotations, quaternions, homogeneous transforms
 - [ ] `robot.py` — forward kinematics, geometric Jacobian, inverse kinematics
 - [ ] `dynamics.py` — Lagrangian dynamics, recursive Newton–Euler
