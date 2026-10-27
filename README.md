@@ -37,10 +37,11 @@ out of the library under test.
 
 - [x] `robot_config.py` — Franka Research 3 (7-DoF) DH table, joint limits and accessors
 - [x] `io_utils.py` — joint-trajectory save/load to CSV (with a missing-file guard)
+- [x] `transform.py` — rotation matrices `rot_x` / `rot_y` / `rot_z`, plus `is_rotation` validation (shape → orthogonality → `det = +1`)
 
 **Planned (v0.1)**
 
-- [ ] `transform.py` — rotations, quaternions, homogeneous transforms
+- [ ] `transform.py` (continued) — quaternions and homogeneous transforms
 - [ ] `robot.py` — forward kinematics, geometric Jacobian, inverse kinematics
 - [ ] `dynamics.py` — Lagrangian dynamics, recursive Newton–Euler
 - [ ] `trajectory.py` — joint-space and Cartesian trajectories
